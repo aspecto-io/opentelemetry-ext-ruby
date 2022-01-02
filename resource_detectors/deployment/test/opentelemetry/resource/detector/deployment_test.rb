@@ -2,12 +2,14 @@
 
 require 'test_helper'
 
+# mock for rails env function
 module MockRails
   def self.env
     'env from rails'
   end
 end
 
+# mock for sinatra environment function
 module MockSinatraBase
   def self.environment
     'env from sinatra'

@@ -6,7 +6,7 @@ require 'opentelemetry/sdk'
 module OpenTelemetry
   module Resource
     module Detector
-      # Dyployment contains detect class method for determining Deployment resource attributes according to opentelemetry specification
+      # Deployment contains detect class method for determining Deployment resource attributes according to opentelemetry specification
       module Deployment
         extend self
 

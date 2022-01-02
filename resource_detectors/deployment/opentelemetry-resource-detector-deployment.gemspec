@@ -30,5 +30,4 @@ Gem::Specification.new do |spec|
     spec.metadata['source_code_uri'] = 'https://github.com/aspecto-io/opentelemetry-ext-ruby/tree/main/resource_detectors/deplyment'
     spec.metadata['bug_tracker_uri'] = 'https://github.com/aspecto-io/opentelemetry-ext-ruby/issues'
   end
-
 end

@@ -26,4 +26,4 @@ Metrics/BlockLength:
   Enabled: false
 Naming/FileName:
   Exclude:
-    - "lib/opentelemetry-resource_detectors.rb"
+    - "lib/opentelemetry-resource-detector-deployment.rb"
