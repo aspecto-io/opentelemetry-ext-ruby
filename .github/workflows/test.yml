@@ -39,7 +39,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Bundle Install
+      - name: Bundle Install Root
+        run: bundle install
+
+      - name: Bundle Install Each Gem
         run: bundle exec rake bundle_install
 
       - name: Run tests
