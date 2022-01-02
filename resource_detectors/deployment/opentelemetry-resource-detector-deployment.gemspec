@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
 
   spec.files = ::Dir.glob('lib/**/*.rb') +
                ::Dir.glob('*.md') +
-               ['LICENSE', '.yardopts']
+               ['LICENSE']
   spec.require_paths = ['lib']
 
   spec.add_dependency 'opentelemetry-sdk', '~> 1.0'
@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop', '~> 0.73.0'
 
   if spec.respond_to?(:metadata)
-    spec.metadata['source_code_uri'] = 'https://github.com/aspecto-io/opentelemetry-ext-ruby/tree/main/resource_detectors/deplyment'
+    spec.metadata['source_code_uri'] = 'https://github.com/aspecto-io/opentelemetry-ext-ruby/tree/master/resource_detectors/deplyment'
     spec.metadata['bug_tracker_uri'] = 'https://github.com/aspecto-io/opentelemetry-ext-ruby/issues'
   end
 end

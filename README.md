@@ -21,7 +21,7 @@ Checkout our extensions for [NodeJS](https://github.com/aspecto-io/opentelemetry
 The components in this repo are:
 
 - vendor neutral
-- strictly complies with [open telemetry semantic conventions](https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/trace/semantic_conventions)
+- strictly complies with [open telemetry semantic conventions](https://github.com/open-telemetry/opentelemetry-specification/tree/master/specification/trace/semantic_conventions)
 - up to date with latest SDK version
 
 ## Resource Detectors
