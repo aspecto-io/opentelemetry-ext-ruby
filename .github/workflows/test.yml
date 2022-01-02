@@ -1,0 +1,49 @@
+name: Test
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        include:
+          - name: Test Linux / Ruby 2.5
+            os: ubuntu-latest
+            ruby: "2.5"
+          - name: Test Linux / Ruby 2.6
+            os: ubuntu-latest
+            ruby: "2.6"
+          - name: Test Linux / Ruby 2.7
+            os: ubuntu-latest
+            ruby: "2.7"
+          - name: Test Linux / Ruby 3.0
+            os: ubuntu-latest
+            ruby: "3.0"
+          - name: Test Linux / JRuby
+            os: ubuntu-latest
+            ruby: jruby
+      fail-fast: false
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    env:
+      JRUBY_OPTS: --debug
+
+    steps:
+      - name: Install Ruby ${{ matrix.ruby }}
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "${{ matrix.ruby }}"
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Bundle Install Root
+        run: bundle install
+
+      - name: Bundle Install Each Gem
+        run: bundle exec rake bundle_install
+
+      - name: Run tests
+        run: bundle exec rake test
