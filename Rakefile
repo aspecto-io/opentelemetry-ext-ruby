@@ -1,19 +1,31 @@
 # frozen_string_literal: true
 
+# based on the work here: https://github.com/open-telemetry/opentelemetry-ruby/blob/main/Rakefile
+
 task :bundle_install do
-    Dir.chdir('resource_detectors/deployment') do
-        sh('bundler install')
-      end
-    end
+  foreach_gem('bundle install')
+end
 
 task :test do
-  Dir.chdir('resource_detectors/deployment') do
-    sh('bundler exec rake test')
-  end
+  foreach_gem('bundle exec rake test')
 end
 
 task :rubocop do
-    Dir.chdir('resource_detectors/deployment') do
-        sh('bundler exec rake rubocop')
+  foreach_gem('bundle exec rake rubocop')
+end
+
+def foreach_gem(cmd)
+  Dir.glob('**/opentelemetry-*.gemspec') do |gemspec|
+    name = File.basename(gemspec, '.gemspec')
+    dir = File.dirname(gemspec)
+    Dir.chdir(dir) do
+      if defined?(Bundler)
+        Bundler.with_unbundled_env do
+          sh(cmd)
+        end
+      else
+        sh(cmd)
+      end
     end
+  end
 end
